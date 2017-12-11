@@ -86,6 +86,7 @@ module Ethereum
     end
 
     def encode_arguments(inputs, args)
+      binding.pry
       raise "Wrong number of arguments" if inputs.length != args.length
       @head = ""
       @tail = ""

@@ -162,6 +162,7 @@ module Ethereum
     end
 
     def call_payload(fun, args)
+      binding.pry
       "0x" + fun.signature + @encoder.encode_arguments(fun.inputs, args)
     end
 
@@ -300,7 +301,7 @@ module Ethereum
       subpath = File.join('build', 'contracts', "#{name}.json")
 
       found = paths.concat(truffle_paths).find { |p| File.file?(File.join(p, subpath)) }
-      if (found) 
+      if (found)
         JSON.parse(IO.read(File.join(found, subpath)))
       else
         nil
